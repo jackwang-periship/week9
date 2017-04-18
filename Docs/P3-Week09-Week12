@@ -1,0 +1,30 @@
+Week 9 Rabbit Programing in Python
+
+To be filled
+
+I.	Install RabbitMQ
+
+We will skip this section because it has been covered in Week 8. Just for the future reference, you can also refer to this link for the detailed instruction:
+https://www.rabbitmq.com/install-windows.html
+
+II.	Getting started with RabbitMQ
+
+Once RabbitMQ has being installed, you can start the instance and send a message cross languages, platforms and OS. This way of handling messages decouples your processes and creates a highly scalable system. You can now start by opening the management interface to get an overview of your RabbitMQ server. 
+The Management Interface - Management and Monitoring is located at port: 15672
+From the management interface, it is possible to handle, create, delete and list queues. It is possible to monitor queue length, check message rate, change and add users’ permissions much more.
+
+III.	RabbitMQ concepts
+
+Here are some important concepts that needs to be described before we dig deeper into RabbitMQ. The default virtual host, the default user, and the default permissions are used in the examples that follow, but it is still good to have a feeling of what it is. 
+Producer: Application that sends the messages. 
+Consumer: Application that receives the messages. 
+Queue: Buffer that stores messages. 
+Message: Information that is sent from the producer to a consumer through RabbitMQ. 
+Connection: A connection is a TCP connection between your application and the RabbitMQ broker. 
+Channel: A channel is a virtual connection inside a connection. When you are publishing or consuming messages from a queue - it's all done over a channel. 
+Exchange: Receives messages from producers and pushes them to queues depending on rules defined by the exchange type. In order to receive messages, a queue needs to be bound to at least one exchange. 
+Binding: A binding is a link between a queue and an exchange. 
+Routing key: The routing key is a key that the exchange looks at to decide how to route the message to queues. The routing key is like an address for the message. 
+AMQP: AMQP (Advanced Message Queuing Protocol) is the protocol used by RabbitMQ for messaging. 
+Users: It is possible to connect to RabbitMQ with a given username and password. Every user can be assigned permissions such as rights to read, write and configure privileges within the instance. Users can also be assigned permissions to specific virtual hosts. 
+Vhost, virtual host: A Virtual host provide a way to segregate applications using the same RabbitMQ instance. Different users can have different access privileges to different vhost and queues and exchanges can be created so they only exist in one vhost. 

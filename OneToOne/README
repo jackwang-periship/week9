@@ -1,0 +1,45 @@
+* Producing means nothing more than sending. A program that sends messages is a producer.
+* A queue is the name for a post box which lives inside RabbitMQ. Although messages flow through RabbitMQ and your applications, 
+they can only be stored inside a queue. A queue is only bound by the host's memory & disk limits, 
+it's essentially a large message buffer. Many producers can send messages that go to one queue, 
+and many consumers can try to receive data from one queue.
+* Consuming has a similar meaning to receiving. A consumer is a program that mostly waits to receive messages.
+* Note that the producer, consumer, and broker do not have to reside on the same host; indeed in most applications they don't.
+
+	Producer --->| | | | |---> Consumer
+	
+* Listing queues
+You may wish to see what queues RabbitMQ has and how many messages are in them. 
+You can do it (as a privileged user) using the rabbitmqctl tool:
+
+	sudo rabbitmqctl list_queues
+
+* In RabbitMQ a message can never be sent directly to the queue, it always needs to go through an exchange. 
+But let's not get dragged down by the details ‒ you can read more about exchanges in the third part of this tutorial. 
+All we need to know now is how to use a default exchange identified by an empty string. 
+This exchange is special ‒ it allows us to specify exactly to which queue the message should go. 
+The queue name needs to be specified in the routing_key parameter
+
+* ConnectionParameters
+
+	credential = pika.PlainCredentials('guest', 'guest')
+	connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost', 
+                                                               credentials=credential))
+# Set the connection parameters to connect to rabbit-server1 on port 5672
+# on the / virtual host using the username "guest" and password "guest"
+# Parameters:    
+# host (str) – Hostname or IP Address to connect to
+# port (int) – TCP port to connect to
+# virtual_host (str) – RabbitMQ virtual host to use
+# credentials (pika.credentials.Credentials) – auth credentials
+# channel_max (int) – Maximum number of channels to allow
+# frame_max (int) – The maximum byte size for an AMQP frame
+# heartbeat_interval (int) – How often to send heartbeats
+# ssl (bool) – Enable SSL
+# ssl_options (dict) – Arguments passed to ssl.wrap_socket as
+# connection_attempts (int) – Maximum number of retry attempts
+# retry_delay (int|float) – Time to wait in seconds, before the next
+# socket_timeout (int|float) – Use for high latency networks
+# locale (str) – Set the locale value
+# backpressure_detection (bool) – Toggle backpressure detection
+
