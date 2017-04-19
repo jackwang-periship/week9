@@ -3,9 +3,9 @@ Created on Apr 18, 2017
 
 @author: jackwang
 '''
-from celery.decorators import periodic_task
-from datetime import timedelta
+from PeriodicTask.celery import app
 
-@periodic_task(run_every=timedelta(seconds=2))
-def every_2_seconds():
-    print("Running periodic task!")
+
+@app.task()
+def helloworld():
+    print "Hello World!"
