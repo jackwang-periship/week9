@@ -21,8 +21,8 @@ app.conf.update(
         'schedule': timedelta(seconds=10),
         'args': ()
         },
-    }
+    },
+    CELERY_TIMEZONE = 'America/New_York'
 )
 
-CELERY_TIMEZONE = 'America/New_York'
 
