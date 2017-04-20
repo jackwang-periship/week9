@@ -1,3 +1,34 @@
+* COMMANDS
+
+celery -A CeleryPrimitives worker --loglevel=info
+
+python -m CeleryPrimitives.run_chunks
+python -m CeleryPrimitives.run_group
+python -m CeleryPrimitives.run_chain
+python -m CeleryPrimitives.run_chord
+
+celery -A CeleryPrimitives flower
+
+	http://localhost:5555
+ 
+* RabbitMQ
+
+sudo service rabbitmq-server stop
+
+To clean-up RabbitMQ, it's enough to follow these simple steps:
+
+    Stop RabbitMQ if it is running.
+    Locate the Mnesia database directory. By default, it's /var/lib/rabbitmq/mnesia (Linux) or %APPDATA%\RabbitMQ\db (Windows).
+    Delete it recursively.
+    Restart RabbitMQ.
+    
+* What to do with this error:
+"Celery.exceptions.TimeoutError: The operation timed out."
+
+The RabbitMQ log file became too big. I was able to remove this problem by delete the RabbitMQ logfile.
+
+
+* Python List Comprehensions
 Python supports a concept called "list comprehensions". It can be used to construct lists in a very natural, 
 easy way, like a mathematician is used to do.
 
