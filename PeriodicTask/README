@@ -1,0 +1,12 @@
+* How to run this program
+
+Open a command window, go to the directory where "week9" is located. In my example,
+Do this:
+
+cd C:\Users\student\git\week9>
+
+Then enter this:
+
+celery -A PeriodicTask beat
+
+Periodical Task has not need to be triggered 

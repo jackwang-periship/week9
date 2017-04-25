@@ -1,3 +1,23 @@
+* Configure RabbitMQ for Celery
+
+	# To add user 'jack' with password 'avtech' enter:
+
+	rabbitmqctl add_user jack avtech
+
+	# To add virtual host 'jack_vhost' enter:
+
+	rabbitmqctl add_vhost jack_vhost
+
+	# To add user tag 'jack_tag' for user 'jack' enter:
+
+	rabbitmqctl set_user_tags jack jack_tag
+
+	# To set permission for user 'jack' on virtual host 'jack_vhost' enter:
+
+	rabbitmqctl set_permissions -p jack_vhost jack ".*" ".*" ".*"
+
+
+
 * Producing means nothing more than sending. A program that sends messages is a producer.
 * A queue is the name for a post box which lives inside RabbitMQ. Although messages flow through RabbitMQ and your applications, 
 they can only be stored inside a queue. A queue is only bound by the host's memory & disk limits, 

@@ -16,7 +16,7 @@ if __name__ == '__main__':
     print 'Task result: ', result.result
     # sleep 10 seconds to ensure the task has been finished
     while True:
-        time.sleep(10)
+        time.sleep(5)
         # now the task should be finished and ready method will return True
         print 'Task finished? ', result.ready()
         print 'Task result: ', result.result

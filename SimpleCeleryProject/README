@@ -1,11 +1,20 @@
-* Configure RabbitMQ for Celery
+* How to run this program
 
-# add user 'jimmy' with password 'jimmy123'
-$ sudo rabbitmqctl add_user jimmy jimmy123
-# add virtual host 'jimmy_vhost'
-$ sudo rabbitmqctl add_vhost jimmy_vhost
-# add user tag 'jimmy_tag' for user 'jimmy'
-$ sudo rabbitmqctl set_user_tags jimmy jimmy_tag
-# set permission for user 'jimmy' on virtual host 'jimmy_vhost'
-$ sudo rabbitmqctl set_permissions -p jimmy_vhost jimmy ".*" ".*" ".*"
+(1) Open a command window, go to the directory where "week9" is located. In my example,
+Do this:
+
+cd C:\Users\student\git\week9>
+
+Then enter this:
+
+celery -A SimpleCeleryProject worker --loglevel=info
+
+(2) Open another command window, go to the directory where "week9" is located. In my example,
+Do this:
+
+cd C:\Users\student\git\week9>
+
+Then enter this:
+
+python -m SimpleCeleryProject.run_tasks
 

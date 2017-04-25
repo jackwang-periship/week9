@@ -10,7 +10,7 @@ from datetime import timedelta
 
 app = Celery('PeriodicTask',
              broker='amqp://jack:avtech@localhost/jack_vhost',
-             backend='rpc://',
+             backend='db+sqlite:///results.sqlite',
              include=['PeriodicTask.tasks']
             )
 

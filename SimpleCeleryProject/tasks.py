@@ -12,6 +12,6 @@ import time
 def longtime_add(x, y):
     print 'long time task begins'
     # sleep 5 seconds
-    time.sleep(60)
+    time.sleep(5)
     print 'long time task finished ZZZZZ'
     return x + y

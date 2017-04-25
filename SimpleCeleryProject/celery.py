@@ -8,6 +8,6 @@ from celery import Celery
 
 app = Celery('SimpleCeleryProject',
              broker='amqp://jack:avtech@localhost/jack_vhost',
-             backend='rpc://',
+             backend='db+sqlite:///results.sqlite',
              include=['SimpleCeleryProject.tasks'])
 
